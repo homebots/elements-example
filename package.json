@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@homebots/elements": "^0.1.0"
+  }
+}
