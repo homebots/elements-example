@@ -1,7 +1,17 @@
 <div>
-  <h1>Tasks</h1>
-  <x-repeat>
-    <li> test <span [innerText]="this.innerText.slice(0, 5)"></span></li>
-  </x-repeat>
-  <ul></ul>
+  <h1>Tasks (<span [innerText]="this.tasks && this.tasks.length">sss</span>)</h1>
+  <input
+    type="text"
+    (change)="this.newTask.title = $event.target.value"
+  />
+  <button (click)="this.addTask()">add</button>
+
+  <app-repeat [for]="'item'" [of]="this.tasks">
+    <template><li [innerText]="item.title"></li></template>
+  </app-repeat>
 </div>
+
+
+<!-- <h1>Hello, <span [innerText]="this.name"></span></h1>
+<input type="text" (input)="this.name = $event.target.value" [value]="this.name" />
+<button (click)="this.name = 'Paul'">paul</button> -->

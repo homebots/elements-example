@@ -1,17 +1,21 @@
-import { Component, Input } from '@homebots/elements';
+import { Changes, Component, Input, OnChanges, Inject, TemplateRef, Injector, ExecutionContext } from '@homebots/elements';
 
 @Component({
-  tag: 'x-repeat',
+  tag: 'app-repeat',
 })
-export class Repeater extends HTMLTemplateElement {
-  @Input()
-  from: Array<any>;
+export class Repeater extends HTMLElement implements OnChanges {
+  @Input() of: Array<any>;
+  @Input() for: string;
+  @Inject() injector: Injector;
+  @Inject() private ec: ExecutionContext;
 
-  constructor() {
-    // this
+  private template: HTMLTemplateElement;
+
+  onChanges(changes: Changes) {
+    // const list =
   }
 
   onInit() {
-    debugger;
+    this.template = this.injector.get(TemplateRef);
   }
 }

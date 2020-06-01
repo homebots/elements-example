@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "ESNext",
+    "target": "es2019",
     "lib": ["ESNext", "DOM"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
