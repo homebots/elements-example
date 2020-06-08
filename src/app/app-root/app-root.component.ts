@@ -11,6 +11,10 @@ import styles from './app-root.css';
 export class AppComponent extends HTMLElement implements OnInit {
   tasks: Task[] = [];
 
+  get pendingTasksCount() {
+    return this.tasks.filter(task => !task.done).length;
+  }
+
   @Inject() service: TaskService;
 
   onInit() {

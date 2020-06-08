@@ -1,11 +1,8 @@
 <header>
   <h1>Tasks</h1>
-  <template *if [if]="!this.tasks.length" [else]="taskcount">No tasks</template>
-  <template #taskcount>You have <span [innerText]="this.tasks && this.tasks.length"></span> tasks</template>
+  <template *if [if]="this.pendingTasksCount" [else]="alldone">You have <span [innerText]="this.pendingTasksCount"></span> tasks left</template>
+  <template #alldone>All done!</template>
 </header>
-
-<!-- <button (click)="this.addRandomTasks()">add random tasks</button>
-<button (click)="this.reset()">reset tasks</button> -->
 
 <create-task (create)="this.addTask($event.detail)"></create-task>
 <task-list [tasks]="this.tasks" (removetask)="this.removeTask($event.detail)" (completetask)="this.completeTask($event.detail)"></task-list>

@@ -76,3 +76,9 @@ label {
 .task-completed .task-title {
   text-decoration: line-through;
 }
+
+.task-empty {
+  display: block;
+  text-align: center;
+  padding: 2rem;
+}

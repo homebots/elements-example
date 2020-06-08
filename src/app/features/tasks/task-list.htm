@@ -10,4 +10,7 @@
       </button>
     </li>
   </template>
+  <template *if [if]="!this.tasks.length">
+    <li class="task task-empty">No tasks yet.</li>
+  </template>
 </ul>
