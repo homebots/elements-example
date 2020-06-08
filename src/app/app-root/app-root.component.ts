@@ -1,28 +1,31 @@
-import { Component, Inject, OnInit, ChangeDetector, ChangeDetectorRef, ApplicationRef, Application } from '@homebots/elements';
+import { Component, Inject, OnInit } from '@homebots/elements';
 import { Task, TaskService } from '../modules/task';
-import appTemplate from './app-root.template.htm';
+import template from './app-root.htm';
+import styles from './app-root.css';
 
 @Component({
   tag: 'app-root',
-  template: appTemplate,
+  template,
+  styles,
 })
 export class AppComponent extends HTMLElement implements OnInit {
-  tasks: Task[];
-  newTask: Task;
+  tasks: Task[] = [];
 
   @Inject() service: TaskService;
-  @Inject(ChangeDetectorRef) cd: ChangeDetector;
 
   onInit() {
     this.updateList();
-    this.newTask = { title: '' };
   }
 
-  addTask() {
-    if (!this.newTask.title) return;
+  addTask(task: Task) {
+    this.service.add(task);
+    this.updateList();
+  }
 
-    this.service.add(this.newTask);
-    this.newTask = { title: '' };
+  completeTask(event: { task: Task, done: boolean }) {
+    const index = this.tasks.findIndex(t => t.title === event.task.title);
+    this.tasks[index] = { title: event.task.title, done: event.done };
+    this.service.saveTasks(this.tasks);
     this.updateList();
   }
 

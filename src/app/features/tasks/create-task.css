@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+form {
+  display: flex;
+}
+input {
+  flex-grow: 2;
+  color: #333;
+  background-color: #BDBDBD;
+  border: 0;
+  border-bottom: 1px solid #333;
+  padding: 1rem;
+  font-size: 1rem;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}

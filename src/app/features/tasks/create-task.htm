@@ -1,0 +1,9 @@
+<form (submit.stop)="this.addTask()">
+  <input
+    type="text"
+    [value]="this.task.title"
+    (input)="this.task.title = $event.target.value"
+    placeholder="add task"
+  />
+  <button type="submit" class="sr-only">add task</button>
+</form>

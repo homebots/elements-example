@@ -10,8 +10,10 @@
     "zone.js": "^0.10.3"
   },
   "dependencies": {
-    "@homebots/elements": "^0.1.3",
+    "@homebots/elements": "^0.3.0",
     "parcel-plugin-stringify-anything": "^1.2.0"
   },
-  "assetTypesToStringify": ["htm"]
+  "assetTypesToStringify": [
+    "htm", "css"
+  ]
 }

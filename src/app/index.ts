@@ -1,8 +1,8 @@
 import { bootstrap, ChangeDetectorRef, BaseChangeDetector } from '@homebots/elements';
 
 export { AppComponent } from './app-root/app-root.component';
-export { Repeater } from './repeater/repeater';
-export { Condition } from './repeater/condition';
+export { CreateTaskComponent } from './features/tasks/create-task';
+export { TaskListComponent } from './features/tasks/task-list';
 
 bootstrap({
   providers: [
