@@ -1,5 +1,11 @@
-import { bootstrap } from '@homebots/elements';
+import { bootstrap, ChangeDetectorRef, BaseChangeDetector } from '@homebots/elements';
 
-export { AppComponent } from './app.component';
+export { AppComponent } from './src/app/app-root/app-root.component';
+export { Repeater } from './src/app/repeater/repeater';
 
-bootstrap();
+bootstrap({
+  rootNode: document.body,
+  providers: [
+    { type: ChangeDetectorRef, useClass: BaseChangeDetector }
+  ]
+});

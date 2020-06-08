@@ -1,17 +1,20 @@
-<div>
-  <h1>Tasks (<span [innerText]="this.tasks && this.tasks.length">sss</span>)</h1>
-  <input
-    type="text"
-    (change)="this.newTask.title = $event.target.value"
-  />
-  <button (click)="this.addTask()">add</button>
-
-  <app-repeat [for]="'item'" [of]="this.tasks">
-    <template><li [innerText]="item.title"></li></template>
-  </app-repeat>
-</div>
-
-
-<!-- <h1>Hello, <span [innerText]="this.name"></span></h1>
-<input type="text" (input)="this.name = $event.target.value" [value]="this.name" />
-<button (click)="this.name = 'Paul'">paul</button> -->
+<h1>Tasks (<span [innerText]="this.tasks && this.tasks.length"></span>)</h1>
+<input
+  type="text"
+  [value]="this.newTask.title"
+  (input)="this.newTask.title = $event.target.value"
+/>
+<button (click)="this.addTask()">add</button>
+<button (click)="this.addRandomTasks()">random tasks</button>
+<button (click)="this.reset()">reset tasks</button>
+<ul>
+  <x-repeat [for]="'item'" [of]="this.tasks">
+    <template><li>
+      <span [innerText]="item.title"></span>
+      <button (click)="this.removeTask(item)">x</button>
+    </li></template>
+  </x-repeat>
+</ul>
+<x-if [if]="this.tasks && !this.tasks.length">
+  <template>No tasks</template>
+</x-if>
