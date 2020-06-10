@@ -1,7 +1,12 @@
-import { Component, EventEmitter, Output } from '@homebots/elements';
+import { Component, EventEmitter, Output, Input } from '@homebots/elements';
 import { Task } from '../../modules/task';
 import template from './task-list.htm';
 import styles from './task-list.css';
+
+export interface TaskCompletedEventData {
+  done: boolean;
+  task: Task;
+}
 
 @Component({
   tag: 'task-list',
@@ -9,10 +14,9 @@ import styles from './task-list.css';
   styles,
 })
 export class TaskListComponent extends HTMLElement {
-  tasks: Task[];
-
+  @Input() tasks: Task[];
   @Output('removetask') onRemove: EventEmitter<Task>;
-  @Output('completetask') onComplete: EventEmitter<{ task: Task, done: boolean }>;
+  @Output('completetask') onComplete: EventEmitter<TaskCompletedEventData>;
 
   removeTask(task: Task) {
     this.onRemove.emit(task);

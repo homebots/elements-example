@@ -3,11 +3,12 @@
   width: 100%;
   max-width: 50vw;
   margin: 2rem auto;
-  border-top: 10px solid #1976D2;
-  background-color: #2196F3;
-  color: white;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-header {
-  padding: 2rem;
+@media screen and (max-width: 800px) {
+  :host {
+    max-width: 90vw;
+  }
 }

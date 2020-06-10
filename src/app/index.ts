@@ -1,8 +1,9 @@
 import { bootstrap, ChangeDetectorRef, BaseChangeDetector } from '@homebots/elements';
 
-export { AppComponent } from './app-root/app-root.component';
-export { CreateTaskComponent } from './features/tasks/create-task';
-export { TaskListComponent } from './features/tasks/task-list';
+export { AppRootComponent as AppComponent } from './app-root/app-root.component';
+export { AppHeaderComponent } from './features/app-header/app-header';
+export { CreateTaskComponent } from './features/create-task/create-task';
+export { TaskListComponent } from './features/task-list/task-list';
 
 bootstrap({
   providers: [

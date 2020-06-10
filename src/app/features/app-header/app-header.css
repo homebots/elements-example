@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  box-sizing: border-box;
+  padding: 3rem 2rem 1rem 2rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 15px solid #1976D2;
+  background-color: #2196F3;
+  color: white;
+  line-height: 1;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}

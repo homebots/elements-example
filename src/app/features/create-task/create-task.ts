@@ -9,13 +9,20 @@ import styles from './create-task.css';
   styles,
 })
 export class CreateTaskComponent extends HTMLElement {
-  task: Task = { title: '' };
   @Output('create') onCreate: EventEmitter<Task>;
+
+  task: Task = {
+    id: Math.random(),
+    title: ''
+  };
 
   addTask() {
     if (!this.task.title) return;
 
     this.onCreate.emit(this.task);
-    this.task = { title: '' };
+    this.task = {
+      id: Math.random(),
+      title: ''
+    };
   }
 }

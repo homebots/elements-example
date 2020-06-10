@@ -1,0 +1,98 @@
+:host {
+  --accent-color: #536dfe;
+  --background-color: #fafafa;
+  --background-color-completed: #bdbdbd;
+  --text-color: #333;
+
+  display: block;
+}
+
+svg {
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  margin-right: 1rem;
+  line-height: 1;
+  padding: 0;
+}
+
+button:hover,
+button:focus {
+  color: var(--accent-color);
+}
+
+input[type="checkbox"] {
+  display: block;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin: 0;
+}
+
+input[type="checkbox"]:focus + label {
+  outline: 1px solid var(--accent-color);
+}
+
+input[type="checkbox"] + label > .checkmark {
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"]:checked + label > .checkmark-unchecked,
+input[type="checkbox"]:not(:checked) + label > .checkmark-checked {
+  display: none;
+}
+
+input[type="checkbox"]:hover + label > .checkmark,
+input[type="checkbox"]:focus + label > .checkmark {
+  color: var(--accent-color);
+}
+
+.task-list {
+  list-style: none;
+  background-color: var(--background-color);
+}
+
+.task-item {
+  display: flex;
+  padding: 0;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--text-color);
+}
+
+.task-content {
+  flex-grow: 2;
+  display: inline-flex;
+  padding: 1rem 0;
+}
+
+.task-title {
+  padding: 0 1rem;
+}
+
+.task-completed {
+  background-color: var(--background-color-completed)
+}
+
+.task-completed .task-title {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.task-empty {
+  display: block;
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-color);
+}

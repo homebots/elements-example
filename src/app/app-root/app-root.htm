@@ -1,8 +1,7 @@
-<header>
-  <h1>Tasks</h1>
-  <template *if [if]="this.pendingTasksCount" [else]="alldone">You have <span [innerText]="this.pendingTasksCount"></span> tasks left</template>
-  <template #alldone>All done!</template>
-</header>
-
+<app-header [tasks]="this.tasks"></app-header>
 <create-task (create)="this.addTask($event.detail)"></create-task>
-<task-list [tasks]="this.tasks" (removetask)="this.removeTask($event.detail)" (completetask)="this.completeTask($event.detail)"></task-list>
+<task-list
+  [tasks]="this.tasks"
+  (removetask)="this.removeTask($event.detail)"
+  (completetask)="this.completeTask($event.detail)"
+></task-list>

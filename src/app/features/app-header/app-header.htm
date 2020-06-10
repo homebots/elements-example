@@ -1,0 +1,10 @@
+<header>
+  <h1>Tasks</h1>
+  <template
+    *if="this.pendingTasksCount"
+    [else]="alldone"
+  >
+    <div><span [innerText]="this.pendingTasksCount"></span> left</div>
+  </template>
+  <template #alldone>All done!</template>
+</header>

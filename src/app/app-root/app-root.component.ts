@@ -1,21 +1,18 @@
 import { Component, Inject, OnInit } from '@homebots/elements';
 import { Task, TaskService } from '../modules/task';
-import template from './app-root.htm';
 import styles from './app-root.css';
+import template from './app-root.htm';
+import { TaskCompletedEventData } from '../features/task-list/task-list';
 
 @Component({
   tag: 'app-root',
   template,
   styles,
 })
-export class AppComponent extends HTMLElement implements OnInit {
-  tasks: Task[] = [];
-
-  get pendingTasksCount() {
-    return this.tasks.filter(task => !task.done).length;
-  }
-
+export class AppRootComponent extends HTMLElement implements OnInit {
   @Inject() service: TaskService;
+
+  tasks: Task[] = [];
 
   onInit() {
     this.updateList();
@@ -26,25 +23,17 @@ export class AppComponent extends HTMLElement implements OnInit {
     this.updateList();
   }
 
-  completeTask(event: { task: Task, done: boolean }) {
-    const index = this.tasks.findIndex(t => t.title === event.task.title);
-    this.tasks[index] = { title: event.task.title, done: event.done };
+  completeTask(event: TaskCompletedEventData) {
+    const { task, done } = event;
+    const index = this.tasks.findIndex(item => item.title === task.title);
+
+    this.tasks[index] = { ...task, done };
     this.service.saveTasks(this.tasks);
     this.updateList();
   }
 
   removeTask(task: Task) {
     this.service.remove(task);
-    this.updateList();
-  }
-
-  addRandomTasks() {
-    this.tasks = Array(1000).fill(null).map((_, index) => ({ title: `Task ${index}`}));
-    this.service.saveTasks(this.tasks);
-  }
-
-  reset() {
-    this.service.saveTasks([]);
     this.updateList();
   }
 

@@ -4,8 +4,7 @@ import { Task } from './task';
 
 @Injectable({ providedBy: 'root' })
 export class TaskService {
-  @Inject()
-  storage: JsonStorage;
+  @Inject() storage: JsonStorage;
 
   loadTasks(): Task[] {
     return this.storage.getItem('tasks') || [];
@@ -18,7 +17,7 @@ export class TaskService {
   }
 
   remove(task: Task) {
-    const tasks = this.loadTasks().filter(t => t.title !== task.title);
+    const tasks = this.loadTasks().filter(t => t.id !== task.id);
     this.saveTasks(tasks);
   }
 

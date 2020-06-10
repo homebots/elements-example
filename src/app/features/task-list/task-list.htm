@@ -1,0 +1,18 @@
+<ul class="task-list">
+  <template *for="'task'" [of]="this.tasks">
+    <li class="task-item" [class.task-completed]="task.done">
+      <input @id="'task-' + index" type="checkbox" [checked]="task.done" (change)="this.completeTask(task, $event.target.checked)" />
+      <label class="task-content" @for="'task-' + index" aria-label="tap to complete task" tabindex="-1">
+        <svg class="checkmark checkmark-unchecked" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" ><path d="M38 10v28H10V10h28m0-4H10c-2.21 0-4 1.79-4 4v28c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z"/></svg>
+        <svg class="checkmark checkmark-checked" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M38 6H10c-2.21 0-4 1.79-4 4v28c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4zM20 34L10 24l2.83-2.83L20 28.34l15.17-15.17L38 16 20 34z"/></svg>
+        <span [innerText]="task.title" class="task-title"></span>
+      </label>
+      <button (click)="this.removeTask(task)" title="remove task">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"/></svg>
+      </button>
+    </li>
+  </template>
+  <template *if="!this.tasks.length">
+    <li class="task task-empty">No tasks yet.</li>
+  </template>
+</ul>
