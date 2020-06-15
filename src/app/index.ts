@@ -1,4 +1,4 @@
-import { bootstrap, ChangeDetectorRef, BaseChangeDetector } from '@homebots/elements';
+import { bootstrap, ChangeDetectorRef, ReactiveChangeDetector } from '@homebots/elements';
 
 export { AppRootComponent as AppComponent } from './app-root/app-root.component';
 export { AppHeaderComponent } from './features/app-header/app-header';
@@ -7,6 +7,6 @@ export { TaskListComponent } from './features/task-list/task-list';
 
 bootstrap({
   providers: [
-    { type: ChangeDetectorRef, useClass: BaseChangeDetector },
+    { type: ChangeDetectorRef, useClass: ReactiveChangeDetector },
   ]
 });
